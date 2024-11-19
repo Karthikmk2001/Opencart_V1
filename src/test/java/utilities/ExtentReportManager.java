@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class ExtentReportManager implements ITestListener {
+public class ExtentReportManager extends BaseClass implements ITestListener {
 
     public ExtentSparkReporter sparkReporter;
     public ExtentReports extent;
@@ -108,6 +108,30 @@ public class ExtentReportManager implements ITestListener {
         {
             exp.printStackTrace();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //Sending Direct Email of the Report Generated
         /*try
