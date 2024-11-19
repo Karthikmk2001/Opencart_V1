@@ -35,7 +35,7 @@ public class BaseClass {
 
     @BeforeClass(groups = {"Sanity","Regression","Master"})
     @Parameters({"os","browser"})
-    public void setUp(@Optional("windows") String os,@Optional("chrome") String browser) throws IOException {
+    public void setUp(@Optional("linux") String os,@Optional("chrome") String browser) throws IOException {
         //Loading config.properties
         FileReader file=new FileReader("./src//test//resources//config.properties");
         properties=new Properties();
@@ -79,6 +79,10 @@ public class BaseClass {
         {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            // Set path to ChromeDriver for AWS Linux
+            System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
             switch (browser.toLowerCase())
             {
                 case "chrome":driver=new ChromeDriver(options);
