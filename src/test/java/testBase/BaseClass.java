@@ -79,9 +79,10 @@ public class BaseClass {
         if(properties.getProperty("execution_env").equalsIgnoreCase("local"))
         {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--headless");            // Run in headless mode
+            options.addArguments("--no-sandbox");         // Disable sandboxing (required in certain environments)
+            options.addArguments("--disable-dev-shm-usage");  // Disable shared memory usage (required in some CI environments)
+            options.addArguments("--remote-allow-origins=*"); // To handle the "This site can’t be reached" error
             WebDriverManager.chromedriver().setup();
             // Set path to ChromeDriver for AWS Linux
             //System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
