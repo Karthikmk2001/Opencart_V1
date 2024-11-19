@@ -7,7 +7,7 @@
     </listeners>
 
     <test name="Master Test">
-        <parameter name="os" value="windows"/>
+        <parameter name="os" value="linux"/>
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="testCases.TC001_Account_Registration_Test"/>
