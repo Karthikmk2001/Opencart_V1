@@ -1,6 +1,5 @@
 package testBase;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,7 +8,6 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -36,7 +34,7 @@ public class BaseClass {
 
     @BeforeClass(groups = {"Sanity","Regression","Master"})
     @Parameters({"os","browser"})
-    public void setUp(@Optional("linux") String os,@Optional("chrome") String browser) throws IOException {
+    public void setUp(@Optional("windows") String os,@Optional("chrome") String browser) throws IOException {
         //Loading config.properties
         FileReader file=new FileReader("./src//test//resources//config.properties");
         properties=new Properties();
@@ -78,17 +76,9 @@ public class BaseClass {
 
         if(properties.getProperty("execution_env").equalsIgnoreCase("local"))
         {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");            // Run in headless mode
-            options.addArguments("--no-sandbox");         // Disable sandboxing (required in certain environments)
-            options.addArguments("--disable-dev-shm-usage");  // Disable shared memory usage (required in some CI environments)
-            options.addArguments("--remote-allow-origins=*"); // To handle the "This site can’t be reached" error
-            WebDriverManager.chromedriver().setup();
-            // Set path to ChromeDriver for AWS Linux
-            //System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
             switch (browser.toLowerCase())
             {
-                case "chrome":driver=new ChromeDriver(options);
+                case "chrome":driver=new ChromeDriver();
                     break;
                 case "edge":driver=new EdgeDriver();
                     break;
