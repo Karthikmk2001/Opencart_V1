@@ -1,5 +1,6 @@
 package testBase;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -81,8 +82,9 @@ public class BaseClass {
             options.addArguments("--headless");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
+            WebDriverManager.chromedriver().setup();
             // Set path to ChromeDriver for AWS Linux
-            System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+            //System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
             switch (browser.toLowerCase())
             {
                 case "chrome":driver=new ChromeDriver(options);
