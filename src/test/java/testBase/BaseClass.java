@@ -71,7 +71,7 @@ public class BaseClass {
                     System.out.println("No matching browser");
                     return;
             }
-            driver=new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"),capabilities);
+            driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
         }
 
         if(properties.getProperty("execution_env").equalsIgnoreCase("local"))
