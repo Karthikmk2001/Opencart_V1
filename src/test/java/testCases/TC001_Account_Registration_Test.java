@@ -33,7 +33,7 @@ public class TC001_Account_Registration_Test extends BaseClass {
             logger.info("Providing Customer Details.....");
 
             accountRegistrationPage.acceptPrivacyPolicy();
-            logger.info("Selected the Agree Checkbox.....");
+            logger.info("Selected the Agree Checkbox...");
 
             accountRegistrationPage.clickBtnContinue();
             logger.info("Clicked on Continue Button.....");
