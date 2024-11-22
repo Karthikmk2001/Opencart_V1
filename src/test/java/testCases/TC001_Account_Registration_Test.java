@@ -36,7 +36,7 @@ public class TC001_Account_Registration_Test extends BaseClass {
             logger.info("Selected the Agree Checkbox.....");
 
             accountRegistrationPage.clickBtnContinue();
-            logger.info("Clicked on Continue Button....");
+            logger.info("Clicked on Continue Button.....");
 
             String confirmationMessage=accountRegistrationPage.getConfirmationMessage();
             if(confirmationMessage.equals("Your Account Has Been Created!"))
