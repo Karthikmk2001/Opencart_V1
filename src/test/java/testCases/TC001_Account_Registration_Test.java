@@ -29,6 +29,7 @@ public class TC001_Account_Registration_Test extends BaseClass {
 
             String password=randomAlphaNumericGenerator();
             accountRegistrationPage.setTxtPassword(password);
+
             accountRegistrationPage.setTxtConfirmPassword(password);
             logger.info("Providing Customer Details.....");
 
@@ -47,6 +48,8 @@ public class TC001_Account_Registration_Test extends BaseClass {
             else
             {
                 logger.error("Test Failed.....");
+
+
                 Assert.fail();
             }
         }
