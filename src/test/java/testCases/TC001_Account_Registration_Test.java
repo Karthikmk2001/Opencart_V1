@@ -47,7 +47,6 @@ public class TC001_Account_Registration_Test extends BaseClass {
             else
             {
                 logger.error("Test Failed.....");
-                logger.debug("*** Debug Logs ***");
                 Assert.fail();
             }
         }
